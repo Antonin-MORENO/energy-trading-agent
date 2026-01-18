@@ -3,11 +3,18 @@ import pandas as pd
 import yfinance as yf
 import plotly.graph_objects as go
 import yaml
+import os
 from datetime import datetime
 from dotenv import load_dotenv
 from src.agent import EnergyTradingAgent
 from src.data_loader import MarketDataLoader
 from src.analytics import calculate_volatility
+
+if "GROQ_API_KEY" in st.secrets:
+    os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
+
+if "NEWS_API_KEY" in st.secrets:
+    os.environ["NEWS_API_KEY"] = st.secrets["NEWS_API_KEY"]
 
 # Configuration & Setup
 with open("config/settings.yaml", "r") as f:
