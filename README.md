@@ -1,6 +1,6 @@
 # ⚡ Energy Trading DashBoard
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)
 ![Groq](https://img.shields.io/badge/AI-Llama3_via_Groq-f55036)
 ![Finance](https://img.shields.io/badge/Domain-Energy_Markets-green)
@@ -11,9 +11,8 @@
 
 <br />
 
-
-<a href="[TON_LIEN_STREAMLIT_ICI](https://energy-trading-agent-antonin-moreno.streamlit.app/)" target="_blank">
-  <img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" height="35" alt="Open in Streamlit"/>
+<a href="https://energy-trading-agent-antonin-moreno.streamlit.app/" target="_blank">
+  <img src="https://img.shields.io/badge/OPEN_LIVE_APP-STREAMLIT-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Open in Streamlit"/>
 </a>
 
 **👆 Click above to launch the Live Dashboard**
