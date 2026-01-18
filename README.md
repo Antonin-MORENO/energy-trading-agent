@@ -12,8 +12,13 @@
 <br />
 
 
+<a href="[TON_LIEN_STREAMLIT_ICI](https://energy-trading-agent-antonin-moreno.streamlit.app/)" target="_blank">
+  <img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" height="35" alt="Open in Streamlit"/>
+</a>
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](YOUR_STREAMLIT_APP_LINK_HERE)
+**👆 Click above to launch the Live Dashboard**
+
+
 
 
 ---
