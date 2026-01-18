@@ -1,0 +1,24 @@
+model:
+  provider: groq
+  name: llama-3.1-8b-instant
+  temperature: 0
+
+agent:
+  alert_threshold: 7
+  max_retries: 3
+  search_topic_default: Natural Gas OR LNG   
+
+market:
+  primary_ticker: NG=F         
+  secondary_ticker: CL=F       
+  timeframe_lookback_days: 365 
+
+ui:
+  chart_theme: plotly_dark
+  default_view: 3M
+
+
+volatility_thresholds:
+  critical: 12.18
+  high: 10.53
+  noise: 5.7
