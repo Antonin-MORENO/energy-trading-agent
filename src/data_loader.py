@@ -71,7 +71,7 @@ class MarketDataLoader:
             for article in data.get('articles', []):
                 formatted_news.append({
                     "text": article['title'] + ". " + (article['description'] or ""),
-                    "date": article['publishedAt']
+                    "publishedAt": article['publishedAt']
                 })
                 
             return formatted_news
