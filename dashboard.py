@@ -210,7 +210,8 @@ with col_news:
                 
                 # date
                 raw_date = getattr(signal, '_published_at', '')
-                st.caption(f"📅 {raw_date}")
+                st_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%SZ').strftime('%b %d, %Y') if raw_date else "Unknown Date"
+                st.caption(f"Published on: {st_date}")
                 
                 # Summary
                 st.caption(signal.summary)
