@@ -68,19 +68,19 @@ with col_charts:
         else:
             vol_label = f"Volatility ({last_date.strftime('%a %d')})"
 
-        # Trend Calculation (vs Noise Level)
+        # Regime Calculation (vs Noise Level)
         last_month_vol = df['Vol_Pct'].tail(22).mean()
-        trend_delta = last_month_vol - VOL_THRESHOLDS["NOISE_LEVEL"]
-        trend_icon = "↗️ Heating Up" if trend_delta > 0 else "↘️ Cooling Down"
+        regi_delta = last_month_vol - VOL_THRESHOLDS["NOISE_LEVEL"]
+        regi_icon = "↗️ Heating Up" if regi_delta > 0 else "↘️ Cooling Down"
 
         
         # Market Regime Determination
         if current_vol > VOL_THRESHOLDS["CRITICAL_WAR"]:
-            status = "🔴 DEFCON 1 (WAR/CRISIS)"
+            status = "🔴 Extreme Stress"
         elif current_vol > VOL_THRESHOLDS["HIGH_TACTICAL"]:
             status = "🟠 HIGH VOLATILITY"
         elif current_vol > VOL_THRESHOLDS["NOISE_LEVEL"]:
-            status = "🟡 ACTIVE MARKET"
+            status = "🟡 Normal"
         else:
             status = "🟢 NOISE / CALM"
 
@@ -88,7 +88,7 @@ with col_charts:
         c1, c2, c3, c4 = st.columns(4)
         c1.metric("Price", f"${current_price:.3f}")
         c2.metric(vol_label, f"{current_vol:.2f}%", delta=f"{current_vol - VOL_THRESHOLDS['NOISE_LEVEL']:.2f}% vs Avg", delta_color="off")
-        c3.metric("Trend (1M)", f"{last_month_vol:.2f}%", delta=trend_icon)
+        c3.metric("Regime (1M)", f"{last_month_vol:.2f}%", delta=regi_icon)
         c4.info(f"Status : {status}")
         
 
@@ -183,6 +183,7 @@ with col_news:
                 signal = agent.analyze_news(item['text'])
                 # Filter out noise
                 if signal and signal.category.value != "Other / Noise":
+                    signal._published_at = item.get('publishedAt', '')
                     signals.append(signal)
         return signals
 
@@ -206,6 +207,10 @@ with col_news:
                 
                 # Headline
                 st.markdown(f"#### {signal.headline}")
+                
+                # date
+                raw_date = getattr(signal, '_published_at', '')
+                st.caption(f"📅 {raw_date}")
                 
                 # Summary
                 st.caption(signal.summary)
